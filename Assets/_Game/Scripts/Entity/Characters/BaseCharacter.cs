@@ -207,6 +207,8 @@ public class BaseCharacter : Entity
         // Kiểm tra từng đối tượng để tìm đối tượng gần nhất
         foreach (var target in characters)
         {
+            if(target == null) continue;
+
             float distance = Vector2.Distance(transform.position, target.transform.position);
 
             if (distance < nearestDistance && !target.IsDie)

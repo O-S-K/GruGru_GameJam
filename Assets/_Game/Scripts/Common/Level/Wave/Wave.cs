@@ -30,17 +30,19 @@ public class Wave : MonoBehaviour
     {
         get => _enemies;
     }
-     
-    private int currentWaveIndex = 0;
+
+    public int CurrentWaveIndex => _currentWaveIndex;
+
+    private int _currentWaveIndex = 0;
 
 
     public void SpawnWaves()
     {
-        if(currentWaveIndex < waves.Length)
+        if(_currentWaveIndex < waves.Length)
         {
             Debug.Log("Spawn Wavesssssssss");
-            StartCoroutine(SpawnEnemies(waves[currentWaveIndex]));
-            currentWaveIndex++;
+            StartCoroutine(SpawnEnemies(waves[_currentWaveIndex]));
+            _currentWaveIndex++;
         }
         else
         {

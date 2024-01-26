@@ -33,6 +33,19 @@ public class Player : BaseCharacter
         Fly();
     }
 
+    public void UpgradeFireRate()
+    {
+    }
+
+    public void BonusProjectile()
+    {
+    }
+
+    public void IncreasesHealth()
+    {
+    }
+
+
     protected void GetInput()
     {
         // Get input

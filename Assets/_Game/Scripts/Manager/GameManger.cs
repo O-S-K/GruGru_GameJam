@@ -65,5 +65,6 @@ public class GameManger : OSK.SingletonMono<GameManger>
     public void FaildMission()
     {
         stateGame = EGameState.Faild;
+        UIManager.Instance.ShowCache<PopupFaildMission>();
     }
 }
