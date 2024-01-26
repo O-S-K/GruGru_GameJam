@@ -17,6 +17,7 @@ public class GameManger : OSK.SingletonMono<GameManger>
 
     public Wave wave;
     public Player player;
+    public CameraController CamMain;
 
     private void Start()
     {
@@ -53,5 +54,16 @@ public class GameManger : OSK.SingletonMono<GameManger>
             player.targets.Clear();
             SpawnWave(1);
         }
+    }
+
+    public void EndEndGame()
+    {
+        stateGame = EGameState.Completed;
+        player.ResetVel();
+    }
+
+    public void FaildMission()
+    {
+        stateGame = EGameState.Faild;
     }
 }

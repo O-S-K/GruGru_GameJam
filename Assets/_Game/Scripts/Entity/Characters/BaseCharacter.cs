@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using DG.Tweening;
 
 [System.Serializable]
 public class DataChar
@@ -120,6 +121,11 @@ public class BaseCharacter : Entity
     protected virtual Vector2 GetDirection()
     {
         return direction;
+    }
+
+    public virtual void ResetVel()
+    {
+        _rigidbody2D.velocity = Vector2.zero;
     }
 
     protected virtual void Fly()

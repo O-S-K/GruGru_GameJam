@@ -101,7 +101,7 @@ public class HealthSystem : MonoBehaviour, IDamageable
         return true;
     }
 
-    protected virtual void Death()
+    public virtual void Death()
     {
         if (IsDie) return;
         IsDie = true;

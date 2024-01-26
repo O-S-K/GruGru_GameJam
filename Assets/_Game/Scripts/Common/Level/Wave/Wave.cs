@@ -44,6 +44,7 @@ public class Wave : MonoBehaviour
         }
         else
         {
+            GameManger.Instance.EndEndGame();
             Debug.LogError("End Wavesssssssss");
         }
     }

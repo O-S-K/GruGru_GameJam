@@ -2,7 +2,7 @@
 using UnityEngine;
 
 
-public class CameraController : OSK.SingletonMono<CameraController>
+public class CameraController : MonoBehaviour
 {
 
     /* ------------------------ Inspector Assigned Fields ----------------------- */
