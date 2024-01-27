@@ -312,15 +312,18 @@ MonoBehaviour:
   typeChar: 1
   stateChar: 0
   targets: []
+  TargetNearest: {fileID: 0}
   _duck: {fileID: 4936675807861478505}
   _baby: {fileID: 0}
   data:
-    _hp: 3
-    _damage: 5
+    _hp: 1
+    _damage: 1
     _speedMovement: 5
     _smoothSpeed: 1
     _seachRadiusTarget: 5
     _fireRateBonus: 1
+    _amountBulletOfGun: 1
+  direction: {x: 0, y: 0}
 --- !u!114 &660563069557697971
 MonoBehaviour:
   m_ObjectHideFlags: 0

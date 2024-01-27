@@ -28,13 +28,9 @@ public class Wave : MonoBehaviour
     public WaveData[] waves;  // Mảng chứa dữ liệu của từng wave
 
     private List<Enemy> _enemies = new List<Enemy>();
-    public List<Enemy> Enemies
-    {
-        get => _enemies;
-    }
+    public List<Enemy> Enemies => _enemies;
 
     public int CurrentWaveIndex => _currentWaveIndex;
-
     private int _currentWaveIndex = 0;
 
 
@@ -62,7 +58,8 @@ public class Wave : MonoBehaviour
             Enemy enemyPrefab = ChooseEnemyPrefab(wave.enemySpawnData);
 
             // Tạo một quái vật mới sử dụng thông tin từ wave
-            Enemy enemy = Instantiate(enemyPrefab, new Vector3(-20, Random.Range(-4, 4)), Quaternion.identity);
+            Vector2 pos = new Vector3(-20, Random.Range(-4, 4));
+            Enemy enemy = Instantiate(enemyPrefab, pos, Quaternion.identity);
             enemy.InitData();
             // Có thể cài đặt thông tin về loại quái vật ở đây (nếu cần) 
             GameManger.Instance.player.AddTarget(enemy);
@@ -83,7 +80,15 @@ public class Wave : MonoBehaviour
             var pos = GetSpawnPosition();
             float dis = Vector3.Distance(_enemies[i].transform.position, pos);
             float time = 5;
-            _enemies[i].transform.DOMove(GetSpawnPosition(), dis / time);
+
+            if (_enemies[i].typeChar == BaseCharacter.ETypeChar.Boss)
+            {
+                _enemies[i].transform.DOMove(Vector3.zero, dis / time);
+            }
+            else
+            {
+                _enemies[i].transform.DOMove(GetSpawnPosition(), dis / time);
+            }
         }
 
         DOVirtual.DelayedCall(5, () =>

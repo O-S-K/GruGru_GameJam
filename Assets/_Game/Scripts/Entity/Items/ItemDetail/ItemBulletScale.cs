@@ -6,16 +6,14 @@ public class ItemBulletScale : BaseItem
 {
     public override void Action(Player player)
     {
-        throw new System.NotImplementedException();
+        player.SetScaleBullet();
     }
 
     public override void DestroyItem()
     {
-        throw new System.NotImplementedException();
     }
 
     public override void OnEnable()
     {
-        throw new System.NotImplementedException();
     }
 }

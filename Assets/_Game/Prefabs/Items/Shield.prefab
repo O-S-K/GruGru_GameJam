@@ -46,5 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: 0
   itemName: Shield
+  des: 
   icon: {fileID: 21300000, guid: ceed496f9410e574397cca998cd289fd, type: 3}
   shieldBlockPrefab: {fileID: 7886754471106189028, guid: 03c17a03bc58c7d45a44594c47f33112, type: 3}

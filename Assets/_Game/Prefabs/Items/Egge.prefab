@@ -46,4 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: 2
   itemName: Egge
+  des: 
   icon: {fileID: 0}

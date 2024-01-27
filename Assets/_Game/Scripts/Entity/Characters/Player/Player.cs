@@ -9,7 +9,20 @@ public class Player : BaseCharacter
     public bool ableItemShield = false;
     private GameObject itemShield;
 
+    public bool ableItemScaleBullet = false;
+    private float _scaleBullet = 1;
 
+    public bool ableChangeSprite = false;
+    public Sprite spriteBullet;
+    public Sprite spriteBulletShitDefault;
+
+    public override void InitData()
+    {
+        base.InitData();
+        ableItemShield = false;
+        ableItemScaleBullet = false;
+        RemoveSpriteBullet();
+    }
 
     protected override void Update()
     {
@@ -89,6 +102,32 @@ public class Player : BaseCharacter
     {
         ableItemShield = false;
         Destroy(itemShield);
+    }
+
+    public void SetScaleBullet()
+    {
+        ableItemScaleBullet = true;
+        Invoke(nameof(RemoveScaleBullet), 8);
+    }
+
+    public void RemoveScaleBullet()
+    {
+        ableItemScaleBullet = false;
+    }
+
+    public void SetSpriteBullet(Sprite sprite)
+    {
+        ableChangeSprite = true;
+        spriteBullet = sprite;
+
+        Invoke(nameof(RemoveSpriteBullet), 8);
+    }
+
+
+    public void RemoveSpriteBullet()
+    {
+        ableChangeSprite = false;
+        spriteBullet = spriteBulletShitDefault;
     }
 
 

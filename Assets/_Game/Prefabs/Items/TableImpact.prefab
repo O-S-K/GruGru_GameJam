@@ -46,4 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: 7
   itemName: TableImpact
+  des: 
   icon: {fileID: 0}

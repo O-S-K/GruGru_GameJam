@@ -46,4 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: 6
   itemName: BouncySnimal
+  des: 
   icon: {fileID: 0}

@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class Enemy : BaseCharacter
 {
+    public void SetBlockMove()
+    {
+
+    }
+
+
     protected Color GetRandomColor()
     {
         // Generate random values for red, green, and blue components

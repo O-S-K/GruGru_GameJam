@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
 
@@ -12,3 +14,5 @@ public static class EditorUtils
         AssetDatabase.SaveAssets();
     }
 }
+
+#endif

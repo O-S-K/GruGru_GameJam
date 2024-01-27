@@ -5,6 +5,7 @@ public abstract class BaseItem : MonoBehaviour
 {
     public EItem item;
     public string itemName = "";
+    public string des = "";
     public Sprite icon;
 
     public abstract void OnEnable();

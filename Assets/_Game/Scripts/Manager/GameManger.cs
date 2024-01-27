@@ -56,7 +56,10 @@ public class GameManger : OSK.SingletonMono<GameManger>
         if(player.targets.Count == 0)
         {
             player.targets.Clear();
-            UIManager.Instance.ShowCache<PopupUpgrade>();
+            DOVirtual.DelayedCall(2, () =>
+            {
+                UIManager.Instance.ShowCache<PopupUpgrade>();
+            });
         }
     }
 

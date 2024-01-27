@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class ItemRocketMissle : BaseItem
 {
+    public BulletRockketMissle bulletRocketPrefab;
     public override void Action(Player player)
     {
-        throw new System.NotImplementedException();
+        for (int i = 0; i < 3; i++)
+        {
+            var bullet = Instantiate(bulletRocketPrefab, player.transform.position, Quaternion.identity);
+            bullet.transform.parent = null;
+            bullet.Init(player, player.direction);
+        }
     }
 
     public override void DestroyItem()
     {
-        throw new System.NotImplementedException();
     }
 
     public override void OnEnable()
     {
-        throw new System.NotImplementedException();
     }
 }

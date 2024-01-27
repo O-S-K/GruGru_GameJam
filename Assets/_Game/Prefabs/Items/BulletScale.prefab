@@ -46,4 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: 1
   itemName: BulletScale
+  des: 
   icon: {fileID: 21300000, guid: 1cb0d91d7eba2f94aa0bf7e5563e2cef, type: 3}

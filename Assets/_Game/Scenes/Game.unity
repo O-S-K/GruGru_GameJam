@@ -1437,7 +1437,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &381396994
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1549,8 +1549,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWaveText: {fileID: 2014628505}
-  backButton: {fileID: 0}
-  retryButton: {fileID: 0}
+  backButton: {fileID: 1561012677}
+  retryButton: {fileID: 18312455}
 --- !u!1 &515588188
 GameObject:
   m_ObjectHideFlags: 0
@@ -1586,7 +1586,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -359.77682}
+  m_AnchoredPosition: {x: 0, y: -285}
   m_SizeDelta: {x: -100, y: 265.5536}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &515588190
@@ -1620,8 +1620,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278255410
+  m_fontColor: {r: 0.1942594, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1644,7 +1644,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 2
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -3675,7 +3675,13 @@ MonoBehaviour:
   - {fileID: 25188457506584993, guid: 3c9cbf4a79417cc4a89e2a8c9eee2e7c, type: 3}
   - {fileID: 2086111533886467689, guid: 00a09ecbd5e65664fba4d720861950ea, type: 3}
   listItemsTest:
+  - {fileID: 9127512471729722869, guid: 5a29155ec1241aa4da56c48a5af55470, type: 3}
+  - {fileID: 2574446266817286848, guid: db0ac19a525df564b854c10f171adc83, type: 3}
+  - {fileID: 1720162750197599425, guid: 9412f10270bde3d46b2ae4045dbcedf9, type: 3}
+  - {fileID: 5676704256088321440, guid: 417bb3c0488aa5344aafed5d7af5fae7, type: 3}
+  - {fileID: 9127512471729722869, guid: 5a29155ec1241aa4da56c48a5af55470, type: 3}
   - {fileID: 7316272666634555801, guid: ae16942eeb918d24fac1394a23b687ff, type: 3}
+  - {fileID: 25188457506584993, guid: 3c9cbf4a79417cc4a89e2a8c9eee2e7c, type: 3}
 --- !u!1 &1386132272
 GameObject:
   m_ObjectHideFlags: 0
@@ -3753,7 +3759,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1492441170
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4505,6 +4511,7 @@ MonoBehaviour:
   typeChar: 0
   stateChar: 0
   targets: []
+  TargetNearest: {fileID: 0}
   _duck: {fileID: 225443921}
   _baby: {fileID: 1976161402}
   data:
@@ -4513,7 +4520,14 @@ MonoBehaviour:
     _speedMovement: 5
     _smoothSpeed: 20
     _seachRadiusTarget: 10
+    _fireRateBonus: 1
+    _amountBulletOfGun: 1
+  direction: {x: 0, y: 0}
   ableItemShield: 0
+  ableItemScaleBullet: 0
+  ableChangeSprite: 0
+  spriteBullet: {fileID: 0}
+  spriteBulletShitDefault: {fileID: 21300000, guid: 88c8ff50b0cf1444cbc3d59be23ece68, type: 3}
 --- !u!114 &1684498109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4526,12 +4540,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22f0aafdf248b63488814613677fbb34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 7218090383173234298, guid: 2c261b4d774476442bcfc1fccb20e6b0, type: 3}
+  projectileShit: {fileID: 7218090383173234298, guid: 2c261b4d774476442bcfc1fccb20e6b0, type: 3}
   pointSpawn: {fileID: 140290008}
   speed: 7
   timeDestroyed: 3
   fireRate: 1
   fireRateDelay: 0
+  iconProjectiles: []
 --- !u!114 &1684498110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4669,7 +4684,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -359.77682}
+  m_AnchoredPosition: {x: 0, y: -285}
   m_SizeDelta: {x: -100, y: 265.5536}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1720229284
@@ -4703,8 +4718,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278255410
+  m_fontColor: {r: 0.1942594, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4727,7 +4742,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 2
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -5507,20 +5522,91 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - enemySpawnData:
-    - enemyPrefab: {fileID: 6321112697867908475, guid: ca1f703937ae94d4b86a972a557de093, type: 3}
+    - enemyPrefab: {fileID: 6321112697867908475, guid: 28a29a6e740cc3a4393d1616a25da404, type: 3}
       spawnWeight: 100
-    totalEnemies: 2
+    totalEnemies: 3
     timeBetweenEnemies: 0.1
   - enemySpawnData:
     - enemyPrefab: {fileID: 6321112697867908475, guid: 28a29a6e740cc3a4393d1616a25da404, type: 3}
-      spawnWeight: 100
+      spawnWeight: 70
+    - enemyPrefab: {fileID: 6321112697867908475, guid: ca1f703937ae94d4b86a972a557de093, type: 3}
+      spawnWeight: 30
     totalEnemies: 5
     timeBetweenEnemies: 0.1
   - enemySpawnData:
     - enemyPrefab: {fileID: 6321112697867908475, guid: 28a29a6e740cc3a4393d1616a25da404, type: 3}
-      spawnWeight: 100
-    totalEnemies: 10
+      spawnWeight: 60
+    - enemyPrefab: {fileID: 6321112697867908475, guid: 3078d04fecd94fa4e9e810d32a5c3891, type: 3}
+      spawnWeight: 20
+    - enemyPrefab: {fileID: 6321112697867908475, guid: ca1f703937ae94d4b86a972a557de093, type: 3}
+      spawnWeight: 10
+    totalEnemies: 5
     timeBetweenEnemies: 0.1
+  - enemySpawnData:
+    - enemyPrefab: {fileID: 6321112697867908475, guid: 28a29a6e740cc3a4393d1616a25da404, type: 3}
+      spawnWeight: 50
+    - enemyPrefab: {fileID: 6321112697867908475, guid: 3078d04fecd94fa4e9e810d32a5c3891, type: 3}
+      spawnWeight: 40
+    - enemyPrefab: {fileID: 6321112697867908475, guid: ca1f703937ae94d4b86a972a557de093, type: 3}
+      spawnWeight: 20
+    totalEnemies: 7
+    timeBetweenEnemies: 0.2
+  - enemySpawnData:
+    - enemyPrefab: {fileID: 6321112697867908475, guid: 28a29a6e740cc3a4393d1616a25da404, type: 3}
+      spawnWeight: 50
+    - enemyPrefab: {fileID: 6321112697867908475, guid: 3078d04fecd94fa4e9e810d32a5c3891, type: 3}
+      spawnWeight: 30
+    - enemyPrefab: {fileID: 6321112697867908475, guid: ca1f703937ae94d4b86a972a557de093, type: 3}
+      spawnWeight: 20
+    totalEnemies: 5
+    timeBetweenEnemies: 0.2
+  - enemySpawnData:
+    - enemyPrefab: {fileID: 6321112697867908475, guid: 28a29a6e740cc3a4393d1616a25da404, type: 3}
+      spawnWeight: 40
+    - enemyPrefab: {fileID: 6321112697867908475, guid: 2bde25ae774449c41a5b2754403f661b, type: 3}
+      spawnWeight: 30
+    - enemyPrefab: {fileID: 6321112697867908475, guid: ca1f703937ae94d4b86a972a557de093, type: 3}
+      spawnWeight: 30
+    totalEnemies: 7
+    timeBetweenEnemies: 0.2
+  - enemySpawnData:
+    - enemyPrefab: {fileID: 6321112697867908475, guid: 3078d04fecd94fa4e9e810d32a5c3891, type: 3}
+      spawnWeight: 50
+    - enemyPrefab: {fileID: 6321112697867908475, guid: 2bde25ae774449c41a5b2754403f661b, type: 3}
+      spawnWeight: 30
+    - enemyPrefab: {fileID: 6321112697867908475, guid: ca1f703937ae94d4b86a972a557de093, type: 3}
+      spawnWeight: 20
+    totalEnemies: 5
+    timeBetweenEnemies: 0.2
+  - enemySpawnData:
+    - enemyPrefab: {fileID: 6321112697867908475, guid: 28a29a6e740cc3a4393d1616a25da404, type: 3}
+      spawnWeight: 10
+    - enemyPrefab: {fileID: 6321112697867908475, guid: 3078d04fecd94fa4e9e810d32a5c3891, type: 3}
+      spawnWeight: 30
+    - enemyPrefab: {fileID: 6321112697867908475, guid: 2bde25ae774449c41a5b2754403f661b, type: 3}
+      spawnWeight: 30
+    - enemyPrefab: {fileID: 6321112697867908475, guid: 1cc76eaef2503f64599d406b572f4c11, type: 3}
+      spawnWeight: 20
+    - enemyPrefab: {fileID: 6321112697867908475, guid: ca1f703937ae94d4b86a972a557de093, type: 3}
+      spawnWeight: 10
+    totalEnemies: 10
+    timeBetweenEnemies: 0.3
+  - enemySpawnData:
+    - enemyPrefab: {fileID: 6321112697867908475, guid: 1cc76eaef2503f64599d406b572f4c11, type: 3}
+      spawnWeight: 20
+    - enemyPrefab: {fileID: 6321112697867908475, guid: 2bde25ae774449c41a5b2754403f661b, type: 3}
+      spawnWeight: 30
+    - enemyPrefab: {fileID: 6321112697867908475, guid: 3078d04fecd94fa4e9e810d32a5c3891, type: 3}
+      spawnWeight: 30
+    - enemyPrefab: {fileID: 6321112697867908475, guid: ca1f703937ae94d4b86a972a557de093, type: 3}
+      spawnWeight: 20
+    totalEnemies: 10
+    timeBetweenEnemies: 0.2
+  - enemySpawnData:
+    - enemyPrefab: {fileID: 6321112697867908475, guid: 079ca27345fd6874c85e4cd0f3ca3245, type: 3}
+      spawnWeight: 100
+    totalEnemies: 1
+    timeBetweenEnemies: 0
 --- !u!4 &2106668418
 Transform:
   m_ObjectHideFlags: 0
@@ -5861,8 +5947,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278255410
+  m_fontColor: {r: 0.1942594, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5885,7 +5971,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 2
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -6110,7 +6196,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -359.77682}
+  m_AnchoredPosition: {x: 0, y: -285}
   m_SizeDelta: {x: -100, y: 265.5536}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4538224725575308607
@@ -7244,7 +7330,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8355116291211292399
 RectTransform:
   m_ObjectHideFlags: 0

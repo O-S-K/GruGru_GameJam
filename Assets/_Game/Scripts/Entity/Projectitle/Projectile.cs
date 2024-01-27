@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : Entity
@@ -8,6 +6,7 @@ public class Projectile : Entity
     [SerializeField] protected Collider2D _collider2D;
     [SerializeField] protected GameObject _vfxImpact;
 
+    [SerializeField] protected SpriteRenderer _sprite;
 
     protected Entity _entity;
     protected Vector2 direction;
@@ -22,9 +21,19 @@ public class Projectile : Entity
     {
         return _collider2D;
     }
+     
+    public  SpriteRenderer Sprite
+    {
+        get => _sprite;
+    }
+
+    public void ChangeSprite(Sprite icon)
+    {
+        _sprite.sprite = icon;
+    }
 
 
-    public void Init(Entity entity, Vector2 direction)
+    public virtual void Init(Entity entity, Vector2 direction)
     {
         _entity = entity;
         ID = entity.ID;
@@ -37,9 +46,9 @@ public class Projectile : Entity
         var target = other.GetComponent<Entity>();
         if (target != null)
         {
+            var c = target.GetComponent<BaseCharacter>();
             if (_entity.layerTarget.value == (_entity.layerTarget.value | (1 << target.gameObject.layer)))
             {
-                var c = target.GetComponent<BaseCharacter>();
                 if(c.typeChar == BaseCharacter.ETypeChar.Player)
                 {
                     var p = c.GetComponent<Player>();
@@ -55,9 +64,9 @@ public class Projectile : Entity
                 }
                 else
                 {
-                    target.GetComponent<HealthSystem>().TakeDamage(transform, -1);
+                    c.GetComponent<HealthSystem>().TakeDamage(transform, -1);
                 }
-                if (target.IsDie)
+                if (c.IsDie && c.typeChar != BaseCharacter.ETypeChar.Boss)
                 {
                     c.KnockBack(direction, 10000);
                 }
@@ -67,12 +76,12 @@ public class Projectile : Entity
         }
     }
 
-    public void Destroyd(float time)
+    public virtual void Destroyd(float time)
     { 
         Destroy(gameObject, time);
     }
 
-    private void CreateImpact()
+    protected virtual void CreateImpact()
     {
         var vfxImpact = Instantiate(_vfxImpact, transform.position, Quaternion.identity);
         vfxImpact.transform.parent = null;

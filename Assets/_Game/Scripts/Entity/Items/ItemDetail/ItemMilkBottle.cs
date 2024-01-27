@@ -6,16 +6,14 @@ public class ItemMilkBottle : BaseItem
 {
     public override void Action(Player player)
     {
-        throw new System.NotImplementedException();
+        player.GetComponent<HealthSystem>().TakeDamage(transform, 1);
     }
 
     public override void DestroyItem()
     {
-        throw new System.NotImplementedException();
     }
 
     public override void OnEnable()
     {
-        throw new System.NotImplementedException();
     }
 }

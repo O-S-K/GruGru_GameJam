@@ -77,7 +77,7 @@ public class BaseCharacter : Entity
     public EStateChar stateChar;
 
     public List<Entity> targets = new List<Entity>();
-
+    public Entity TargetNearest;
 
     public Duck Duck => _duck;
     public Baby Baby => _baby;
@@ -96,7 +96,7 @@ public class BaseCharacter : Entity
     protected HealthSystem _heath;
 
     protected Vector2 velocity;
-    protected Vector2 direction;
+    public Vector2 direction;
 
     public float FireRate => _fireRate;
     protected float _fireRate;
@@ -104,7 +104,6 @@ public class BaseCharacter : Entity
 
     public float AmountBulletOfGun => _amountBulletOfGun;
     protected float _amountBulletOfGun;
-
 
     protected void Awake()
     {
@@ -260,6 +259,7 @@ public class BaseCharacter : Entity
         // Kiểm tra xem đối tượng gần nhất có nằm trong bán kính tìm kiếm không
         if (nearestObject != null && !nearestObject.IsDie && nearestDistance <= searchRadius)
         {
+            TargetNearest = nearestObject;
             Attack(nearestObject);
         }
         else

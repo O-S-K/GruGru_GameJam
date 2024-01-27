@@ -6,16 +6,14 @@ public class ItemDiaper : BaseItem
 {
     public override void Action(Player player)
     {
-        throw new System.NotImplementedException();
+        player.SetSpriteBullet(icon);
     }
 
     public override void DestroyItem()
     {
-        throw new System.NotImplementedException();
     }
 
     public override void OnEnable()
     {
-        throw new System.NotImplementedException();
     }
 }
