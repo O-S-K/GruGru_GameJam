@@ -135,7 +135,7 @@ public class HealthBarShrinkTransform : MonoBehaviour
         UpdateHeathBar(_health.GetHealthPercent());
     }
 
-    private void UpdateHeathBar(float healthNormalized)
+    public void UpdateHeathBar(float healthNormalized)
     {
         _bar.localScale = new Vector3(healthNormalized, 1, 1);
         if (isPlayer) textStats.text = ((int)_health.CurrentHealth).ToString();

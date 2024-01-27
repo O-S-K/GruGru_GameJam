@@ -22,7 +22,7 @@ public class PopupFaildMission : OSK.Popup
 
     public void OnRetry()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void OnBackMenu()

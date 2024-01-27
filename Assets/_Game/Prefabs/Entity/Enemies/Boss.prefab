@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 2068651389, guid: 1e2ac384008242b47b142e274c4ef8c6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -199,7 +199,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 1620005758, guid: c99a4f0f6e749bf44a87f8a4dc03fc2b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -357,7 +357,7 @@ MonoBehaviour:
   _duck: {fileID: 4936675807861478505}
   _baby: {fileID: 5208019220743457306}
   data:
-    _hp: 10
+    _hp: 15
     _damage: 1
     _speedMovement: 5
     _smoothSpeed: 1
@@ -454,6 +454,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6321112697867908476}
     m_Modifications:
+    - target: {fileID: 6647581776083297443, guid: c92dc40f8b55f0549930ff6352034c33, type: 3}
+      propertyPath: isHideBar
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7390961904091294986, guid: c92dc40f8b55f0549930ff6352034c33, type: 3}
       propertyPath: m_Name
       value: HealthBarShrink

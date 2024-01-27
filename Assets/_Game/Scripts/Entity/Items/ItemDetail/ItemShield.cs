@@ -7,6 +7,7 @@ public class ItemShield : BaseItem
     public GameObject shieldBlockPrefab;
     public override void Action(Player player)
     {
+        AudioManager.Instance.PlayOneShot("WeaponLevelUp");
         player.AddItemShield(shieldBlockPrefab);
     }
 

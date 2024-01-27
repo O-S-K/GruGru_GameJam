@@ -451,6 +451,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6321112697867908476}
     m_Modifications:
+    - target: {fileID: 6647581776083297443, guid: c92dc40f8b55f0549930ff6352034c33, type: 3}
+      propertyPath: isHideBar
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7390961904091294986, guid: c92dc40f8b55f0549930ff6352034c33, type: 3}
       propertyPath: m_Name
       value: HealthBarShrink

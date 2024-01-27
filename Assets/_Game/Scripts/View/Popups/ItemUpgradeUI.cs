@@ -28,6 +28,7 @@ public class ItemUpgradeUI : MonoBehaviour
                 break;
         }
 
+        AudioManager.Instance.PlayOneShot("ShowReward");
         UIManager.Instance.GetPopup<PopupUpgrade>().Hide();
     }
 }

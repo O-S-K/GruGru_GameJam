@@ -194,6 +194,7 @@ public class BaseCharacter : Entity
         if (_baby != null) _baby.Hit();
         if (_duck != null) _duck.Hit();
 
+        AudioManager.Instance.PlayOneShot($"gib_drop{Random.Range(2, 4)}");
         CreateManager.Instance.CreateTextDamagePopup(transform.position, (int)damageValue, typeDamage);
         //BloodParticleSystemHandler.Instance.SpawnBlood(2, transform.position, -dir);
     }

@@ -7,6 +7,7 @@ public class ItemRocketMissle : BaseItem
     public BulletRockketMissle bulletRocketPrefab;
     public override void Action(Player player)
     {
+        AudioManager.Instance.PlayOneShot("Laucher");
         for (int i = 0; i < 3; i++)
         {
             var bullet = Instantiate(bulletRocketPrefab, player.transform.position, Quaternion.identity);

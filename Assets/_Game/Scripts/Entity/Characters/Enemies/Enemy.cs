@@ -30,8 +30,11 @@ public class Enemy : BaseCharacter
         var colorCreep = GameManger.Instance.colorEnemyCreeps;
         var newColor = colorCreep[Random.Range(0, colorCreep.Length)];
 
-        if (_duck != null) _duck.Sprite().color = newColor;
-        if (_baby != null) _baby.Sprite().color = GetRandomColor();
+        if (typeChar != ETypeChar.Player && typeChar != ETypeChar.Boss)
+        {
+            if (_duck != null) _duck.Sprite().color = newColor;
+            if (_baby != null) _baby.Sprite().color = GetRandomColor();
+        }
 
         base.InitData();
     }
@@ -51,6 +54,8 @@ public class Enemy : BaseCharacter
     protected override void Die()
     {
         base.Die();
+        //AudioManager.Instance.PlayOneShot($"Headgib-{Random.Range(1, 5)}", 0.25f, 0);
+         AudioManager.Instance.PlayOneShot($"PlayerDie", 1, 0, Random.Range(0.9f, 1.1f));
 
         GameManger.Instance.CamMain.ShakeCamera(0.1f, 0.3f, 10, Ease.InOutBack, 0.25f, Ease.OutBack);
         GameManger.Instance.RemoveEnemyDie(this);

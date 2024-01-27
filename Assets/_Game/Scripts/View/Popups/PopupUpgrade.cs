@@ -6,12 +6,14 @@ public class PopupUpgrade : OSK.Popup
 {
     public override void Show(object[] inData, PopupClosed callback)
     {
+        Time.timeScale = 0;
         base.Show(inData, callback);
     }
 
     public override void Hide()
     {
-        base.Hide();
-        GameManger.Instance.SpawnWave(1);
+        Time.timeScale = 1;
+        base.Hide(); 
+        GameManger.Instance.SpawnWave(2);
     }
 }

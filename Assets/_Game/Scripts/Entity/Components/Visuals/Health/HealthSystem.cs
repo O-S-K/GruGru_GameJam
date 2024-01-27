@@ -40,6 +40,14 @@ public class HealthSystem : MonoBehaviour, IDamageable
         MaxHealth = value;
     }
 
+    public void RestoreFullHP()
+    {
+        CurrentHealth = MaxHealth;
+        HealthDisplay.UpdateHeathBar(GetHealthPercent());
+
+    }
+
+
     private void Update()
     {
         if (IsDie && IsBlockDamage) return;

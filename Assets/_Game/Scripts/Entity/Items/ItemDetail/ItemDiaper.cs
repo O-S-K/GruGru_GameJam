@@ -6,6 +6,7 @@ public class ItemDiaper : BaseItem
 {
     public override void Action(Player player)
     {
+        AudioManager.Instance.PlayOneShot("Upgrade");
         player.SetSpriteBullet(icon);
     }
 

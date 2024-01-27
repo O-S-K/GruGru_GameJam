@@ -16,19 +16,34 @@ public class BulletRockketMissle : Projectile
 
         var t = entity.GetComponent<Player>().targets;
 
-        if (t != null)
+        if (t != null && t.Count > 0)
         {
-            enemyTarget = t[Random.Range(0, t.Count)];
-            newPos = enemyTarget.transform.position;
-            transform.DOMove(newPos, 1).SetEase(Ease.InOutCubic).OnUpdate(UpdatePosEnemy);
-            transform.DOLookAt(newPos, 0.1f);
+            for (int i = 0; i < t.Count; i++)
+            {
+                enemyTarget = t[Random.Range(0, t.Count)];
+                newPos = enemyTarget.transform.position;
+                transform.DOMove(newPos, 1).SetEase(Ease.InOutCubic).OnUpdate(UpdatePosEnemy).OnComplete(() =>
+                {
+                    Destroyd(0);
+                });
+                transform.DOLookAt(newPos, 0.1f);
+            }
         }
         else
         {
             newPos = Vector2.zero;
-            transform.DOMove(newPos, 1).SetEase(Ease.InOutCubic);
+            transform.DOMove(newPos, 1).SetEase(Ease.InOutCubic).OnComplete(() =>
+            {
+                Destroyd(0);
+            });
             transform.DOLookAt(newPos, 0.1f);
         }
+    }
+
+    private void Update()
+    {
+
+
     }
 
     void UpdatePosEnemy()
@@ -40,7 +55,7 @@ public class BulletRockketMissle : Projectile
         else
         {
             var t = _entity.GetComponent<Player>().targets;
-            if(t != null && t.Count > 0)
+            if (t != null && t.Count > 0)
             {
                 newPos = t[Random.Range(0, t.Count)].transform.position;
             }
@@ -54,6 +69,7 @@ public class BulletRockketMissle : Projectile
     public override void Destroyd(float time)
     {
         base.Destroyd(time);
+        AudioManager.Instance.PlayOneShot("frag1_explosion", 0.5f);
         GameManger.Instance.CamMain.ShakeCamera(0.3f, 0.7f, 10, Ease.InOutBack, 0.5f, Ease.OutBack);
     }
 

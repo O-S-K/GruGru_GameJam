@@ -51,6 +51,7 @@ public class ThrowShitComponent : MonoBehaviour, IAttack
             currentFireRate = 0;
             entity.Baby.Attack();
             StartCoroutine(IECreateBullet(target));
+            AudioManager.Instance.PlayOneShot("Throw");
         }
         else
         {

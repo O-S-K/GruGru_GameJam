@@ -9,6 +9,7 @@ public class Baby : Entity
     protected Animator _animator;
     protected SpriteRenderer _sprite;
     protected Color _colorInit = Color.white;
+    protected Tweener spriteTween;
 
     private void Awake()
     {
@@ -40,14 +41,16 @@ public class Baby : Entity
 
     public virtual void Hit()
     {
-        _sprite.DOColor(Color.red, 0.1f).OnComplete(() =>
+        if (spriteTween != null) spriteTween.Kill();
+        spriteTween = _sprite.DOColor(_colorInit, 0); _sprite.DOColor(Color.red, 0.1f).OnComplete(() =>
         {
-            _sprite.DOColor(_colorInit, 0.05f);
+            spriteTween = _sprite.DOColor(_colorInit, 0.05f);
         });
     }
 
     public virtual void Die()
     {
+        DOTween.KillAll();
         _animator.CrossFadeInFixedTime("BabyDie", 0.1f);
         _sprite.color = Color.gray;
     }

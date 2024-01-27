@@ -18,13 +18,23 @@ public class Boss : Enemy
 
 
         var p = GameManger.Instance.player;
-        if(p != null)
+        if (p != null)
         {
-            if (Vector3.Distance(transform.position, p.transform.position) > 1)
+            if (p.IsDie)
             {
-                _rigidbody2D.velocity = ((Vector2)p.transform.position - _rigidbody2D.position).normalized * data.GetSmoothSpeed();
+                if (Vector3.Distance(transform.position, Vector2.zero) > 1)
+                {
+                    _rigidbody2D.velocity = (Vector2.zero - _rigidbody2D.position).normalized * data.GetSmoothSpeed();
+                }
+            }
+            else
+            {
+                if (Vector3.Distance(transform.position, p.transform.position) > 1)
+                {
+                    _rigidbody2D.velocity = ((Vector2)p.transform.position - _rigidbody2D.position).normalized * data.GetSmoothSpeed();
+                }
             }
         }
-     
+
     }
 }

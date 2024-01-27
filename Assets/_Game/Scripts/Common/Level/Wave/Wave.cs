@@ -91,10 +91,13 @@ public class Wave : MonoBehaviour
             }
         }
 
-        DOVirtual.DelayedCall(5, () =>
-        {
-            GameManger.Instance.StartGame();
-        });
+        CancelInvoke(nameof(StartGame));
+        Invoke(nameof(StartGame), 5);
+    }
+
+    void StartGame()
+    {
+        GameManger.Instance.StartGame();
     }
 
 

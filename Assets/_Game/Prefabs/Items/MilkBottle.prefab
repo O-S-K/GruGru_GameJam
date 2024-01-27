@@ -48,3 +48,4 @@ MonoBehaviour:
   itemName: MilkBottle
   des: 
   icon: {fileID: 21300000, guid: 0f60cda67ac0993439ed1c48b29f9a3a, type: 3}
+  healthPlus: 3

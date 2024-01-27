@@ -82,7 +82,8 @@ public class Player : BaseCharacter
 
     public void IncreasesHealth()
     {
-        _heath.SetMaxHeath((int)_heath.MaxHealth + 1);
+        _heath.RestoreFullHP();
+
     }
 
     public void AddItemShield(GameObject shield)

@@ -46,6 +46,7 @@ public class Duck : Entity
     public virtual void Hit()
     {
         if(spriteTween != null) spriteTween.Kill();
+        _sprite.DOColor(_colorInit, 0);
         spriteTween = _sprite.DOColor(Color.red, 0.1f).OnComplete(() =>
         {
             spriteTween = _sprite.DOColor(_colorInit, 0.05f);

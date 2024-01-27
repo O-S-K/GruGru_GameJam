@@ -7,6 +7,8 @@ public class ItemShitRain : BaseItem
     public Projectile itemRaintPrefab;
     public override void Action(Player player)
     {
+        AudioManager.Instance.PlayOneShot("Upgrade");
+
         for (int i = 0; i < 100; i++)
         {
             var itemBullet = Instantiate(itemRaintPrefab);
@@ -14,6 +16,7 @@ public class ItemShitRain : BaseItem
             itemBullet.transform.position = new Vector3(Random.Range(-8, 8), Random.Range(8, 20), 0);
             itemBullet.Init(player, Vector3.down);
             itemBullet.GetRig().gravityScale = Random.Range(1f, 2f);
+            Destroy(itemBullet.gameObject, 5);
         }
 
         //GameManger.Instance.CamMain.ShakeCamera()
