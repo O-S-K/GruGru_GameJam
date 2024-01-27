@@ -18,6 +18,8 @@ public class DataChar
     [SerializeField] protected float _seachRadiusTarget = 5;
 
     [SerializeField] protected float _fireRateBonus = 1;
+    [SerializeField] protected float _amountBulletOfGun = 1;
+
 
     public int GetHP()
     {
@@ -42,6 +44,10 @@ public class DataChar
     public float GetSeachRadiusTarget()
     {
         return _seachRadiusTarget;
+    }
+    public float GetAmountBulletOfGun()
+    {
+        return _amountBulletOfGun;
     }
 }
 
@@ -95,6 +101,11 @@ public class BaseCharacter : Entity
     public float FireRate => _fireRate;
     protected float _fireRate;
 
+
+    public float AmountBulletOfGun => _amountBulletOfGun;
+    protected float _amountBulletOfGun;
+
+
     protected void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
@@ -118,6 +129,7 @@ public class BaseCharacter : Entity
         if (_baby != null) _baby.Init();
 
         _fireRate = data.GetFireRate();
+        _amountBulletOfGun = data.GetAmountBulletOfGun();
     }
 
     protected virtual void Update()

@@ -57,6 +57,14 @@ public class Player : BaseCharacter
 
     public void BonusProjectile()
     {
+        if(_amountBulletOfGun <= 5)
+        {
+            _amountBulletOfGun++;
+        }
+        else
+        {
+            _amountBulletOfGun = 5;
+        }
     }
 
     public void IncreasesHealth()
