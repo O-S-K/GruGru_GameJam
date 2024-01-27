@@ -12,5 +12,6 @@ public class PopupUpgrade : OSK.Popup
     public override void Hide()
     {
         base.Hide();
+        GameManger.Instance.SpawnWave(1);
     }
 }

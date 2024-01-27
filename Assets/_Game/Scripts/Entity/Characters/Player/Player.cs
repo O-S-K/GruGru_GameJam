@@ -12,6 +12,8 @@ public class Player : BaseCharacter
 
         if (GameManger.Instance.stateGame != GameManger.EGameState.Playing)
             return;
+        if (IsDie)
+            return;
 
         FindNearestObject(targets, data.GetSeachRadiusTarget()); 
     }
@@ -27,6 +29,9 @@ public class Player : BaseCharacter
             return;
 
         if (GameManger.Instance.stateGame == GameManger.EGameState.Faild)
+            return;
+
+        if(IsDie) 
             return;
 
         GetInput();

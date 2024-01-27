@@ -12,6 +12,9 @@ public class Enemy : BaseCharacter
         if (GameManger.Instance.stateGame != GameManger.EGameState.Playing)
             return;
 
+        if (IsDie)
+            return;
+
         FindNearestObject(targets, data.GetSeachRadiusTarget());
     }
 
@@ -21,6 +24,20 @@ public class Enemy : BaseCharacter
 
         GameManger.Instance.CamMain.ShakeCamera(0.1f, 0.3f, 10, Ease.InOutBack, 0.25f, Ease.OutBack);
         GameManger.Instance.RemoveEnemyDie(this);
+    }
+
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+
+        if (IsDie)
+            return;
+        Fly();
+    }
+
+    protected override void Fly()
+    {
+        base.Fly();
     }
 
 }

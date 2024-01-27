@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -52,7 +53,7 @@ public class GameManger : OSK.SingletonMono<GameManger>
         if(player.targets.Count == 0)
         {
             player.targets.Clear();
-            SpawnWave(1);
+            UIManager.Instance.ShowCache<PopupUpgrade>();
         }
     }
 
@@ -65,6 +66,9 @@ public class GameManger : OSK.SingletonMono<GameManger>
     public void FaildMission()
     {
         stateGame = EGameState.Faild;
-        UIManager.Instance.ShowCache<PopupFaildMission>();
+        DOVirtual.DelayedCall(2, () =>
+        {
+            UIManager.Instance.ShowCache<PopupFaildMission>();
+        });
     }
 }

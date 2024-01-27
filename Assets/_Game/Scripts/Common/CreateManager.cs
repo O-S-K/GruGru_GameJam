@@ -6,6 +6,8 @@ public class CreateManager : OSK.SingletonMono<CreateManager>
 {
     /* ------------------------ Inspector Assigned Fields ----------------------- */
     public DamagePopup damagePopupPrefab;
+    public ItemDrop ItemDropPrefab;
+    public BaseItem[] listItems;
 
     /* ----------------------------- Public Methods ----------------------------- */
 
@@ -26,6 +28,13 @@ public class CreateManager : OSK.SingletonMono<CreateManager>
         return damagePopup;
     }
     #endregion
+
+    public ItemDrop CreateItemEnemyDrop()
+    {
+        var _item = Instantiate(ItemDropPrefab);
+        _item.Initialize(listItems[Random.Range(0, listItems.Length)]);
+        return _item;
+    }
 
     /* -------------------------------------------------------------------------- */
 }

@@ -64,6 +64,11 @@ public class BaseCharacter : Entity
 
     public List<Entity> targets = new List<Entity>();
 
+
+    public Duck Duck => _duck;
+    public Baby Baby => _baby;
+
+
     [SerializeField] protected Duck _duck;
     [SerializeField] protected Baby _baby;
 
@@ -114,8 +119,8 @@ public class BaseCharacter : Entity
             return;
 
         stateChar = EStateChar.Idle;
-        _baby.Idle();
-        _duck.Idle();
+        if (_baby != null) _baby.Idle();
+        if (_duck != null) _duck.Idle();
     }
 
     protected virtual Vector2 GetDirection()
@@ -123,6 +128,10 @@ public class BaseCharacter : Entity
         return direction;
     }
 
+    public Rigidbody2D GetRig()
+    {
+        return _rigidbody2D;
+    }
     public virtual void ResetVel()
     {
         _rigidbody2D.velocity = Vector2.zero;
@@ -133,13 +142,14 @@ public class BaseCharacter : Entity
         if (IsDie)
             return;
         stateChar = EStateChar.Fly;
-        _duck.Fly();
+        if (_duck != null) _duck.Fly();
     }
 
     protected virtual void Attack(Entity target)
     {
         if (IsDie)
             return;
+
 
         stateChar = EStateChar.Attack;
         var attacks = GetComponents<IAttack>();
@@ -155,8 +165,8 @@ public class BaseCharacter : Entity
         if (IsDie)
             return;
 
-        _baby.Hit();
-        _duck.Hit();
+        if (_baby != null) _baby.Hit();
+        if (_duck != null) _duck.Hit();
 
         CreateManager.Instance.CreateTextDamagePopup(transform.position, (int)damageValue, typeDamage);
         //BloodParticleSystemHandler.Instance.SpawnBlood(2, transform.position, -dir);
@@ -174,10 +184,12 @@ public class BaseCharacter : Entity
 
         IsDie = true;
         stateChar = EStateChar.Die;
-        _baby.Die();
-        _duck.Die();
+        if (_baby != null) _baby.Die();
+        if (_duck != null) _duck.Die();
         _rigidbody2D.gravityScale = 3;
         _collider2D.enabled = false;
+
+        transform.DORotateQuaternion(Quaternion.Euler(0, 0, direction.x > 0 ? -125 : 125), 1);
 
         Destroy(gameObject, 3);
     }
@@ -199,7 +211,7 @@ public class BaseCharacter : Entity
     }
 
     public void FindNearestObject(List<Entity> characters, float searchRadius)
-    { 
+    {
         // Đối tượng gần mình nhất
         Entity nearestObject = null;
         float nearestDistance = Mathf.Infinity;
@@ -207,7 +219,7 @@ public class BaseCharacter : Entity
         // Kiểm tra từng đối tượng để tìm đối tượng gần nhất
         foreach (var target in characters)
         {
-            if(target == null) continue;
+            if (target == null) continue;
 
             float distance = Vector2.Distance(transform.position, target.transform.position);
 

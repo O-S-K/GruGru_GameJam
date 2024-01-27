@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,11 @@ public class DieComponent : MonoBehaviour
             if (!p.IsDie)
             {
                 p.GetComponent<HealthSystem>().Death();
+                p.gameObject.SetActive(false);
+                // TODO: play Vfx trigger water
+                //p.ResetVel();
+                //p.GetRig().gravityScale = 0.5f;
+                //p.transform.DOScale(0, 1f).SetEase(Ease.Linear);
             }
         }
     }
