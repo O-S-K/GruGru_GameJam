@@ -39,10 +39,27 @@ public class Projectile : Entity
         {
             if (_entity.layerTarget.value == (_entity.layerTarget.value | (1 << target.gameObject.layer)))
             {
-                target.GetComponent<HealthSystem>().TakeDamage(transform, -1);
-                if(target.IsDie)
+                var c = target.GetComponent<BaseCharacter>();
+                if(c.typeChar == BaseCharacter.ETypeChar.Player)
                 {
-                    target.GetComponent<BaseCharacter>().KnockBack(direction, 10000);
+                    var p = c.GetComponent<Player>();
+                    if (p.ableItemShield)
+                    {
+                        p.RemoveItemShield();
+
+                    }
+                    else
+                    {
+                        target.GetComponent<HealthSystem>().TakeDamage(transform, -1);
+                    }
+                }
+                else
+                {
+                    target.GetComponent<HealthSystem>().TakeDamage(transform, -1);
+                }
+                if (target.IsDie)
+                {
+                    c.KnockBack(direction, 10000);
                 }
                 Destroyd(0);
                 CreateImpact();

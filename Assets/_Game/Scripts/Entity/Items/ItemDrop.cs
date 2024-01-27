@@ -19,7 +19,8 @@ public class ItemDrop : MonoBehaviour
         {
             if (!p.IsDie)
             {
-                item.Action(p.transform);
+                item.Action(p);
+                Destroy(gameObject);
             }
         }
     }

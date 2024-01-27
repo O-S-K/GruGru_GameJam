@@ -8,7 +8,7 @@ public abstract class BaseItem : MonoBehaviour
     public Sprite icon;
 
     public abstract void OnEnable();
-    public abstract void Action(Transform player);
+    public abstract void Action(Player player);
     public abstract void DestroyItem();
 
     protected void OnValidate()

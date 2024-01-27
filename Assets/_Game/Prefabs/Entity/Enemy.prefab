@@ -361,6 +361,7 @@ MonoBehaviour:
     _speedMovement: 5
     _smoothSpeed: 1
     _seachRadiusTarget: 5
+    _fireRateBonus: 1
 --- !u!114 &5971302057709948870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,7 +378,7 @@ MonoBehaviour:
   pointSpawn: {fileID: 6880062020643100607}
   speed: 4
   timeDestroyed: 3
-  fireRate: 1
+  fireRate: 2
   fireRateDelay: 0.25
 --- !u!114 &660563069557697971
 MonoBehaviour:

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemBouncySnimal : BaseItem
 {
-    public override void Action(Transform player)
+    public override void Action(Player player)
     {
         throw new System.NotImplementedException();
     }

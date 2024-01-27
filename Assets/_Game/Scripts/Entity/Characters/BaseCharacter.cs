@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using DG.Tweening;
+using Unity.VisualScripting;
 
 [System.Serializable]
 public class DataChar
@@ -16,9 +17,16 @@ public class DataChar
     [SerializeField] protected float _smoothSpeed = 0.9f;
     [SerializeField] protected float _seachRadiusTarget = 5;
 
+    [SerializeField] protected float _fireRateBonus = 1;
+
     public int GetHP()
     {
         return _hp;
+    }
+
+    public float GetFireRate()
+    {
+        return _fireRateBonus;
     }
 
     public float GetSpeedMovement()
@@ -84,6 +92,8 @@ public class BaseCharacter : Entity
     protected Vector2 velocity;
     protected Vector2 direction;
 
+    public float FireRate => _fireRate;
+    protected float _fireRate;
 
     protected void Awake()
     {
@@ -103,6 +113,11 @@ public class BaseCharacter : Entity
     public virtual void InitData()
     {
         IsDie = false;
+
+        if (_duck != null) _duck.Init();
+        if (_baby != null) _baby.Init();
+
+        _fireRate = data.GetFireRate();
     }
 
     protected virtual void Update()

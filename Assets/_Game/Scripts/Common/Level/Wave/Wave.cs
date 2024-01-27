@@ -7,6 +7,8 @@ using UnityEngine;
 public class EnemySpawnData
 {
     public Enemy enemyPrefab;  // Prefab của quái vật
+
+    [Range(0, 100)]
     public float spawnWeight = 1f;   // Tỉ lệ spawn của quái vật
     // Các thông tin khác bạn muốn thêm cho mỗi loại quái vật
 }
@@ -38,7 +40,7 @@ public class Wave : MonoBehaviour
 
     public void SpawnWaves()
     {
-        if(_currentWaveIndex < waves.Length)
+        if (_currentWaveIndex < waves.Length)
         {
             Debug.Log("Spawn Wavesssssssss");
             StartCoroutine(SpawnEnemies(waves[_currentWaveIndex]));
@@ -61,8 +63,8 @@ public class Wave : MonoBehaviour
 
             // Tạo một quái vật mới sử dụng thông tin từ wave
             Enemy enemy = Instantiate(enemyPrefab, new Vector3(-20, Random.Range(-4, 4)), Quaternion.identity);
-
-            // Có thể cài đặt thông tin về loại quái vật ở đây (nếu cần)
+            enemy.InitData();
+            // Có thể cài đặt thông tin về loại quái vật ở đây (nếu cần) 
             GameManger.Instance.player.AddTarget(enemy);
             enemy.AddTarget(GameManger.Instance.player);
 

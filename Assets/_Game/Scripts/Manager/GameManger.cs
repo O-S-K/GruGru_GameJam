@@ -20,8 +20,11 @@ public class GameManger : OSK.SingletonMono<GameManger>
     public Player player;
     public CameraController CamMain;
 
+    public Color[] colorEnemyCreeps;
+
     private void Start()
     {
+        player.InitData();
         SpawnWave(0);
     }
 

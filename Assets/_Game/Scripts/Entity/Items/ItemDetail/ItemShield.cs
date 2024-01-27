@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class ItemShield : BaseItem
 {
-    public override void Action(Transform player)
+    public GameObject shieldBlockPrefab;
+    public override void Action(Player player)
     {
-        throw new System.NotImplementedException();
+        player.AddItemShield(shieldBlockPrefab);
     }
 
     public override void DestroyItem()
     {
-        throw new System.NotImplementedException();
+        Destroy(gameObject);
     }
 
     public override void OnEnable()
     {
-        throw new System.NotImplementedException();
     }
 }

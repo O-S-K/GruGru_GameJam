@@ -4,8 +4,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Player : BaseCharacter 
+public class Player : BaseCharacter
 {
+    public bool ableItemShield = false;
+    private GameObject itemShield;
+
+
+
     protected override void Update()
     {
         base.Update();
@@ -15,7 +20,7 @@ public class Player : BaseCharacter
         if (IsDie)
             return;
 
-        FindNearestObject(targets, data.GetSeachRadiusTarget()); 
+        FindNearestObject(targets, data.GetSeachRadiusTarget());
     }
 
     protected override void FixedUpdate()
@@ -31,7 +36,7 @@ public class Player : BaseCharacter
         if (GameManger.Instance.stateGame == GameManger.EGameState.Faild)
             return;
 
-        if(IsDie) 
+        if (IsDie)
             return;
 
         GetInput();
@@ -40,6 +45,14 @@ public class Player : BaseCharacter
 
     public void UpgradeFireRate()
     {
+        if (_fireRate >= 0.2f)
+        {
+            _fireRate -= 0.2f;
+        }
+        else
+        {
+            _fireRate = 0.2f;
+        }
     }
 
     public void BonusProjectile()
@@ -48,6 +61,26 @@ public class Player : BaseCharacter
 
     public void IncreasesHealth()
     {
+        _heath.SetMaxHeath((int)_heath.MaxHealth + 1);
+    }
+
+    public void AddItemShield(GameObject shield)
+    {
+        if (itemShield != null)
+        {
+            Destroy(itemShield);
+        }
+
+        itemShield = Instantiate(shield);
+        itemShield.transform.parent = transform;
+        itemShield.transform.localPosition = Vector3.zero;
+        ableItemShield = true;
+    }
+
+    public void RemoveItemShield()
+    {
+        ableItemShield = false;
+        Destroy(itemShield);
     }
 
 

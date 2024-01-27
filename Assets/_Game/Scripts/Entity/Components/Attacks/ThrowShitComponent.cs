@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class ThrowShitComponent : MonoBehaviour, IAttack
 {
@@ -26,9 +25,22 @@ public class ThrowShitComponent : MonoBehaviour, IAttack
         currentFireRate = fireRate;
     }
 
+    private float GetFireRate()
+    {
+        if (entity.typeChar == BaseCharacter.ETypeChar.Player)
+        {
+            var p = (Player)entity;
+            return fireRate = p.FireRate;
+        }
+        else
+        {
+            return fireRate + UnityEngine.Random.Range(-fireRateDelay, fireRateDelay);
+        }
+    }
+
     public void Attack(Entity target)
     {
-        if (currentFireRate >= fireRate + UnityEngine.Random.Range(-fireRateDelay, fireRateDelay))
+        if (currentFireRate >= GetFireRate())
         {
             currentFireRate = 0;
             entity.Baby.Attack();

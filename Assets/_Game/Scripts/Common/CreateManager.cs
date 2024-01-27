@@ -8,6 +8,8 @@ public class CreateManager : OSK.SingletonMono<CreateManager>
     public DamagePopup damagePopupPrefab;
     public ItemDrop ItemDropPrefab;
     public BaseItem[] listItems;
+    public BaseItem[] listItemsTest;
+
 
     /* ----------------------------- Public Methods ----------------------------- */
 
@@ -32,7 +34,7 @@ public class CreateManager : OSK.SingletonMono<CreateManager>
     public ItemDrop CreateItemEnemyDrop()
     {
         var _item = Instantiate(ItemDropPrefab);
-        _item.Initialize(listItems[Random.Range(0, listItems.Length)]);
+        _item.Initialize(listItemsTest[Random.Range(0, listItemsTest.Length)]);
         return _item;
     }
 
