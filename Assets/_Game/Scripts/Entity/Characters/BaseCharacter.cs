@@ -176,7 +176,6 @@ public class BaseCharacter : Entity
         if (IsDie)
             return;
 
-
         stateChar = EStateChar.Attack;
         var attacks = GetComponents<IAttack>();
         foreach (var attack in attacks)

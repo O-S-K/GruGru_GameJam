@@ -51,7 +51,7 @@ public class ThrowShitComponent : MonoBehaviour, IAttack
             currentFireRate = 0;
             entity.Baby.Attack();
             StartCoroutine(IECreateBullet(target));
-            AudioManager.Instance.PlayOneShot("Throw");
+            AudioManager.Instance.PlayOneShot("Throw", 1, 0, UnityEngine.Random.Range(0.8f, 1.2f));
         }
         else
         {

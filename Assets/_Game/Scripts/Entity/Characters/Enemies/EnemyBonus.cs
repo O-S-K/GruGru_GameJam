@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyBonus : Enemy
 {
     private float _timeLoopColor = 0.25f;
-    private bool _setColor = false; 
+    private bool _setColor = false;
 
     protected override void Update()
     {

@@ -55,7 +55,7 @@ public class SkillBossComponent : MonoBehaviour, IAttack
 
     public Vector3 GetScaleBullet()
     {
-        return Vector3.one * UnityEngine.Random.Range(0.5f, 1.5f);
+        return Vector3.one * UnityEngine.Random.Range(1f, 2f);
     }
 
     private IEnumerator IECreateBullet(Entity target)

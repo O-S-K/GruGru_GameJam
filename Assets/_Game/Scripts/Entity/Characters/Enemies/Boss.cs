@@ -16,16 +16,12 @@ public class Boss : Enemy
         if (GameManger.Instance.stateGame != GameManger.EGameState.Playing)
             return;
 
-
         var p = GameManger.Instance.player;
         if (p != null)
         {
             if (p.IsDie)
             {
-                if (Vector3.Distance(transform.position, Vector2.zero) > 1)
-                {
-                    _rigidbody2D.velocity = (Vector2.zero - _rigidbody2D.position).normalized * data.GetSmoothSpeed();
-                }
+                _rigidbody2D.bodyType = RigidbodyType2D.Static;
             }
             else
             {

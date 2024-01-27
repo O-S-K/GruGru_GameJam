@@ -5,11 +5,19 @@ using UnityEngine;
 
 public class Enemy : BaseCharacter
 {
+    protected  bool BlockMove = false;
     public void SetBlockMove()
     {
-
+        BlockMove = true;
     }
 
+
+    protected override void Attack(Entity target)
+    {
+        if (GameManger.Instance.player.ableBlockEnemyAttack)
+            return;
+        base.Attack(target);
+    }
 
     protected Color GetRandomColor()
     {
@@ -20,13 +28,11 @@ public class Enemy : BaseCharacter
 
         // Create and return the random color
         Color randomColor = new Color(randomRed, randomGreen, randomBlue);
-
         return randomColor;
     }
 
     public override void InitData()
     {
-
         var colorCreep = GameManger.Instance.colorEnemyCreeps;
         var newColor = colorCreep[Random.Range(0, colorCreep.Length)];
 
@@ -48,14 +54,42 @@ public class Enemy : BaseCharacter
         if (IsDie)
             return;
 
+        if (GameManger.Instance.player != null)
+        {
+            if (GameManger.Instance.player.ableEnemyDancing)
+            {
+                FlipSpriteDuck();
+            }
+            else
+            {
+                _duck.Sprite().flipX = false;
+            }
+        }
+
         FindNearestObject(targets, data.GetSeachRadiusTarget());
+    }
+
+    private bool flip;
+    private float timeFlip = 0.1f;
+    protected virtual void FlipSpriteDuck()
+    {
+        if (timeFlip <= 0)
+        {
+            flip = !flip;
+            _duck.Sprite().flipX = flip;
+            timeFlip = 0.1f;
+        }
+        else
+        {
+            timeFlip -= Time.deltaTime;
+        }
     }
 
     protected override void Die()
     {
         base.Die();
         //AudioManager.Instance.PlayOneShot($"Headgib-{Random.Range(1, 5)}", 0.25f, 0);
-         AudioManager.Instance.PlayOneShot($"PlayerDie", 1, 0, Random.Range(0.9f, 1.1f));
+        AudioManager.Instance.PlayOneShot($"PlayerDie", 1, 0, Random.Range(0.9f, 1.1f));
 
         GameManger.Instance.CamMain.ShakeCamera(0.1f, 0.3f, 10, Ease.InOutBack, 0.25f, Ease.OutBack);
         GameManger.Instance.RemoveEnemyDie(this);

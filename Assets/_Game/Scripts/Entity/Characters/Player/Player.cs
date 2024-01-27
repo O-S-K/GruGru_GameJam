@@ -16,6 +16,12 @@ public class Player : BaseCharacter
     public Sprite spriteBullet;
     public Sprite spriteBulletShitDefault;
 
+    public bool ableBlockEnemyAttack = false;
+
+    private GameObject itemShark;
+    public bool ableEnemyDancing = false;
+
+
     public override void InitData()
     {
         base.InitData();
@@ -130,6 +136,42 @@ public class Player : BaseCharacter
         ableChangeSprite = false;
         spriteBullet = spriteBulletShitDefault;
     }
+
+    public void BlockAttackEnemy()
+    {
+        ableBlockEnemyAttack = true;
+        Invoke(nameof(RemoveBlockAttackEnemy), 3);
+    }
+
+    public void RemoveBlockAttackEnemy()
+    {
+        ableBlockEnemyAttack = false;
+        AudioManager.Instance.musicSource.Play();
+    }
+
+    public void DancingEnemy(GameObject sharkPrefab)
+    {
+        ableEnemyDancing = true;
+
+        if(itemShark != null)
+        {
+            Destroy(itemShark);
+        }
+
+        itemShark = Instantiate(sharkPrefab);
+        itemShark.transform.parent = null;
+        itemShark.transform.position = new Vector3(0, -3.3f, 0);
+
+        Invoke(nameof(RemoveDancingEnemy), 6);
+    }
+
+    public void RemoveDancingEnemy()
+    {
+        ableEnemyDancing = false;
+        Destroy(itemShark);
+        AudioManager.Instance.musicSource.Play();
+    }
+
 
 
     protected void GetInput()

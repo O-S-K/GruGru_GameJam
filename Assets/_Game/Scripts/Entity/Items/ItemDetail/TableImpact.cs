@@ -1,21 +1,25 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TableImpact : BaseItem
 {
+    [SerializeField] private GameObject sharkPrefab;
+
     public override void Action(Player player)
     {
-        throw new System.NotImplementedException();
+        AudioManager.Instance.musicSource.Pause();
+        AudioManager.Instance.PlayOneShot("babyshark", 0.7f);
+        player.DancingEnemy(sharkPrefab); 
     }
+     
 
     public override void DestroyItem()
     {
-        throw new System.NotImplementedException();
     }
 
     public override void OnEnable()
     {
-        throw new System.NotImplementedException();
     }
 }

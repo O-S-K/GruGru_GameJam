@@ -4,18 +4,24 @@ using UnityEngine;
 
 public class ItemEgge : BaseItem
 {
+    [SerializeField] private GameObject dogePrefab;
+
     public override void Action(Player player)
     {
-        throw new System.NotImplementedException();
+        var doge= Instantiate(dogePrefab);
+        doge.transform.parent = null;
+        doge.transform.position = new Vector3(12, 0,0);
+        player.BlockAttackEnemy();
+
+        AudioManager.Instance.musicSource.Pause();
+        AudioManager.Instance.PlayOneShot("doge");
     }
 
     public override void DestroyItem()
     {
-        throw new System.NotImplementedException();
     }
 
     public override void OnEnable()
     {
-        throw new System.NotImplementedException();
     }
 }

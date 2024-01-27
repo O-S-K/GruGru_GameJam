@@ -31,7 +31,7 @@ public class Wave : MonoBehaviour
     public List<Enemy> Enemies => _enemies;
 
     public int CurrentWaveIndex => _currentWaveIndex;
-    private int _currentWaveIndex = 0;
+    [SerializeField] private int _currentWaveIndex = 0;
 
 
     public void SpawnWaves()

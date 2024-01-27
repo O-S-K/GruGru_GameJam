@@ -22,9 +22,13 @@ public class GameManger : OSK.SingletonMono<GameManger>
 
     public Color[] colorEnemyCreeps;
 
+    public SpriteRenderer backgroundBlackFade;
+
     private void Start()
     {
-        AudioManager.Instance.PlayMusic($"Theme {Random.Range(1, 3)}", 0.3f);
+        //AudioManager.Instance.PlayMusic($"Theme {Random.Range(1, 3)}", 0.3f);
+        AudioManager.Instance.PlayMusic($"Theme {1}", 0.3f);
+
         FindObjectOfType<FadeUI>().FadeOut(1, 0, null);
         player.InitData();
         SpawnWave(1);
@@ -41,13 +45,18 @@ public class GameManger : OSK.SingletonMono<GameManger>
     {
         var notif = UIManager.Instance.ShowCache<PopupNotif>();
 
-        if(wave.CurrentWaveIndex == 9)
+        if (wave.CurrentWaveIndex == 9)
         {
+            backgroundBlackFade.gameObject.SetActive(true);
+            backgroundBlackFade.DOFade(0, 0);
+            backgroundBlackFade.DOFade(.5f, 1f);
+            AudioManager.Instance.PlayMusic($"Darkness", 0.5f);
             AudioManager.Instance.PlayOneShot("warning");
             notif.ShowText($"Waves Boss !!!", 3);
         }
         else
         {
+            backgroundBlackFade.gameObject.SetActive(false);
             notif.ShowText($"Waves {wave.CurrentWaveIndex}/10", 3);
         }
         stateGame = EGameState.Ready;
@@ -68,9 +77,9 @@ public class GameManger : OSK.SingletonMono<GameManger>
 
     public void CheckNewWave()
     {
-        if(wave.CurrentWaveIndex > 9)
+        if (wave.CurrentWaveIndex > 9)
         {
-            FindObjectOfType<FadeUI>().FadeIn(1,1, () =>
+            FindObjectOfType<FadeUI>().FadeIn(1, 2.5f, () =>
             {
                 DOVirtual.DelayedCall(2, () =>
                 {
