@@ -10,10 +10,17 @@ public class IntroManager : MonoBehaviour
     public Baby baby;
 
     public SpriteRenderer tile;
+    private bool isStartIntro = false;
+    public GameObject tut;
 
-    private void Start()
+    private void Update()
     {
-        StartCoroutine(Intro());
+        if (Input.anyKey && !isStartIntro)
+        {
+            isStartIntro = true;
+            tut.SetActive(false);
+            StartCoroutine(Intro());
+        }
     }
 
     private IEnumerator Intro()

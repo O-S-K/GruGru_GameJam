@@ -206,6 +206,9 @@ public class Player : BaseCharacter
     {
         base.Die();
 
+        AudioManager.Instance.musicSource.Stop();
+        AudioManager.Instance.PlayOneShot("Sfx_Faild");
+
         GameManger.Instance.FaildMission();
         GameManger.Instance.CamMain.ShakeCamera(0.2f, 0.3f, 10, Ease.InOutBack, 0.5f, Ease.OutBack);
     }

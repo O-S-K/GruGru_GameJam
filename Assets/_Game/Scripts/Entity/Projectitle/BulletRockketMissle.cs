@@ -40,17 +40,19 @@ public class BulletRockketMissle : Projectile
         }
     }
 
-    private void Update()
-    {
-
-
-    }
 
     void UpdatePosEnemy()
     {
         if (enemyTarget != null)
         {
-            newPos = enemyTarget.transform.position;
+            if(enemyTarget.IsDie)
+            {
+                Destroyd(0);
+            }
+            else
+            {
+                newPos = enemyTarget.transform.position;
+            }
         }
         else
         {
@@ -69,7 +71,7 @@ public class BulletRockketMissle : Projectile
     public override void Destroyd(float time)
     {
         base.Destroyd(time);
-        AudioManager.Instance.PlayOneShot("frag1_explosion", 0.5f);
+        AudioManager.Instance.PlayOneShot("frag1_explosion", 0.5f, 0, Random.Range(0.8f, 1.2f));
         GameManger.Instance.CamMain.ShakeCamera(0.3f, 0.7f, 10, Ease.InOutBack, 0.5f, Ease.OutBack);
     }
 

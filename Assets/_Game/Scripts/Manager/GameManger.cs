@@ -24,6 +24,8 @@ public class GameManger : OSK.SingletonMono<GameManger>
 
     public SpriteRenderer backgroundBlackFade;
 
+    private bool isPause;
+
     private void Start()
     {
         //AudioManager.Instance.PlayMusic($"Theme {Random.Range(1, 3)}", 0.3f);
@@ -33,7 +35,27 @@ public class GameManger : OSK.SingletonMono<GameManger>
         player.InitData();
         SpawnWave(1);
         var notif = UIManager.Instance.ShowCache<PopupNotif>();
-        notif.ShowText("Move to avoid and defeat other storks", 6);
+        notif.ShowText("Press arrow buttons to avoid and defeat other storks", 6);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Escape) || Input.GetKeyUp(KeyCode.P))
+        {
+            isPause = !isPause;
+            Time.timeScale = isPause ? 0 : 1;
+
+            if (isPause)
+            {
+                Time.timeScale = 0;
+                AudioManager.Instance.Pause();
+            }
+            else
+            {
+                Time.timeScale = 1;
+                AudioManager.Instance.Resume();
+            }
+        }
     }
 
     public void StartGame()

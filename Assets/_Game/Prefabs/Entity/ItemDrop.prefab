@@ -376,6 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1436244341355573838}
+  textNotif: {fileID: 1685312374525573593, guid: 31a2fb9433e069d41aea5743d35bc4d1, type: 3}
 --- !u!58 &6176873273885258796
 CircleCollider2D:
   m_ObjectHideFlags: 0

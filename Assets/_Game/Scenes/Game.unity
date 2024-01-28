@@ -6154,26 +6154,26 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 6321112697867908475, guid: 3078d04fecd94fa4e9e810d32a5c3891, type: 3}
       spawnWeight: 20
     - enemyPrefab: {fileID: 6321112697867908475, guid: ca1f703937ae94d4b86a972a557de093, type: 3}
-      spawnWeight: 10
+      spawnWeight: 20
     totalEnemies: 5
     timeBetweenEnemies: 0.2
   - enemySpawnData:
     - enemyPrefab: {fileID: 6321112697867908475, guid: 28a29a6e740cc3a4393d1616a25da404, type: 3}
       spawnWeight: 50
     - enemyPrefab: {fileID: 6321112697867908475, guid: 3078d04fecd94fa4e9e810d32a5c3891, type: 3}
-      spawnWeight: 40
+      spawnWeight: 30
     - enemyPrefab: {fileID: 6321112697867908475, guid: ca1f703937ae94d4b86a972a557de093, type: 3}
       spawnWeight: 20
     totalEnemies: 7
     timeBetweenEnemies: 0.3
   - enemySpawnData:
     - enemyPrefab: {fileID: 6321112697867908475, guid: 28a29a6e740cc3a4393d1616a25da404, type: 3}
-      spawnWeight: 50
-    - enemyPrefab: {fileID: 6321112697867908475, guid: 3078d04fecd94fa4e9e810d32a5c3891, type: 3}
       spawnWeight: 30
+    - enemyPrefab: {fileID: 6321112697867908475, guid: 3078d04fecd94fa4e9e810d32a5c3891, type: 3}
+      spawnWeight: 50
     - enemyPrefab: {fileID: 6321112697867908475, guid: ca1f703937ae94d4b86a972a557de093, type: 3}
       spawnWeight: 20
-    totalEnemies: 5
+    totalEnemies: 6
     timeBetweenEnemies: 0.2
   - enemySpawnData:
     - enemyPrefab: {fileID: 6321112697867908475, guid: 28a29a6e740cc3a4393d1616a25da404, type: 3}
@@ -6191,7 +6191,7 @@ MonoBehaviour:
       spawnWeight: 30
     - enemyPrefab: {fileID: 6321112697867908475, guid: ca1f703937ae94d4b86a972a557de093, type: 3}
       spawnWeight: 20
-    totalEnemies: 5
+    totalEnemies: 8
     timeBetweenEnemies: 0.3
   - enemySpawnData:
     - enemyPrefab: {fileID: 6321112697867908475, guid: 3078d04fecd94fa4e9e810d32a5c3891, type: 3}
@@ -6213,7 +6213,7 @@ MonoBehaviour:
       spawnWeight: 30
     - enemyPrefab: {fileID: 6321112697867908475, guid: ca1f703937ae94d4b86a972a557de093, type: 3}
       spawnWeight: 20
-    totalEnemies: 10
+    totalEnemies: 12
     timeBetweenEnemies: 0.2
   - enemySpawnData:
     - enemyPrefab: {fileID: 6321112697867908475, guid: 079ca27345fd6874c85e4cd0f3ca3245, type: 3}

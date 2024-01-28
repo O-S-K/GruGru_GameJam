@@ -34,10 +34,10 @@ namespace OSK
 
         public virtual void Update()
         {
-            if(Input.GetKeyUp(KeyCode.Escape))
-            {
-                Hide();
-            }
+            //if(Input.GetKeyUp(KeyCode.Escape))
+            //{
+            //    Hide();
+            //}
         }
 
         public virtual void Hide()
