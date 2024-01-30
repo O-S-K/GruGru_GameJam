@@ -26,6 +26,11 @@ public class GameManger : OSK.SingletonMono<GameManger>
 
     private bool isPause;
 
+    private void Awake()
+    {
+        Application.targetFrameRate = 60;
+    }
+
     private void Start()
     {
         //AudioManager.Instance.PlayMusic($"Theme {Random.Range(1, 3)}", 0.3f);
@@ -40,7 +45,7 @@ public class GameManger : OSK.SingletonMono<GameManger>
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Escape) || Input.GetKeyUp(KeyCode.P))
+        if (Input.GetKeyUp(KeyCode.Escape))
         {
             isPause = !isPause;
             Time.timeScale = isPause ? 0 : 1;
@@ -55,6 +60,23 @@ public class GameManger : OSK.SingletonMono<GameManger>
                 Time.timeScale = 1;
                 AudioManager.Instance.Resume();
             }
+        }
+    }
+
+    public void PauseGame()
+    {
+        isPause = !isPause;
+        Time.timeScale = isPause ? 0 : 1;
+
+        if (isPause)
+        {
+            Time.timeScale = 0;
+            AudioManager.Instance.Pause();
+        }
+        else
+        {
+            Time.timeScale = 1;
+            AudioManager.Instance.Resume();
         }
     }
 

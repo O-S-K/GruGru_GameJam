@@ -262,11 +262,11 @@ public class BaseCharacter : Entity
             TargetNearest = nearestObject;
             Attack(nearestObject);
         }
-        else
-        {
-            // Không có đối tượng nào trong bán kính tìm kiếm
-            Debug.Log($"{name} No nearby objects found.");
-        }
+        //else
+        //{
+        //    // Không có đối tượng nào trong bán kính tìm kiếm
+        //    Debug.Log($"{name} No nearby objects found.");
+        //}
     }
 
     private void OnDrawGizmos()

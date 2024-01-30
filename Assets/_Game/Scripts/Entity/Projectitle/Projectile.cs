@@ -10,6 +10,7 @@ public class Projectile : Entity
 
     protected Entity _entity;
     protected Vector2 direction;
+    public int damage = 1;
 
 
     public Rigidbody2D GetRig()
@@ -64,7 +65,7 @@ public class Projectile : Entity
                 }
                 else
                 {
-                    c.GetComponent<HealthSystem>().TakeDamage(transform, -1);
+                    c.GetComponent<HealthSystem>().TakeDamage(transform, -damage);
                 }
                 if (c.IsDie && c.typeChar != BaseCharacter.ETypeChar.Boss)
                 {

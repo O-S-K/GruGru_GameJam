@@ -8,7 +8,7 @@ public class CreateManager : OSK.SingletonMono<CreateManager>
     public DamagePopup damagePopupPrefab;
     public ItemDrop ItemDropPrefab;
     public BaseItem[] listItems;
-    //public BaseItem[] listItemsTest;
+    public BaseItem[] listItemsTest;
 
 
     /* ----------------------------- Public Methods ----------------------------- */

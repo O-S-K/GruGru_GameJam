@@ -361,8 +361,8 @@ MonoBehaviour:
     _damage: 1
     _speedMovement: 3
     _smoothSpeed: 1
-    _seachRadiusTarget: 5
-    _fireRateBonus: 1
+    _seachRadiusTarget: 7
+    _fireRateBonus: 0.8
     _amountBulletOfGun: 1
   direction: {x: 0, y: 0}
 --- !u!114 &5971302057709948870

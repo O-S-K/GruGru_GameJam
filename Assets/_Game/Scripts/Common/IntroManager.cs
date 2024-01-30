@@ -13,6 +13,11 @@ public class IntroManager : MonoBehaviour
     private bool isStartIntro = false;
     public GameObject tut;
 
+    private void Awake()
+    {
+        Application.targetFrameRate = 60;
+    }
+
     private void Update()
     {
         if (Input.anyKey && !isStartIntro)
@@ -29,6 +34,7 @@ public class IntroManager : MonoBehaviour
         tile.DOFade(0, 0);
         tile.gameObject.SetActive(false);
 
+        duck.Fly();
 
         yield return new WaitForSeconds(1);
         baby.gameObject.SetActive(false);

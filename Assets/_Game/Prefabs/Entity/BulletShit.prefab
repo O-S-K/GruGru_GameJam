@@ -57,6 +57,7 @@ MonoBehaviour:
   _collider2D: {fileID: 1535818091230703153}
   _vfxImpact: {fileID: 8886056334478347287, guid: 0465f496bb0a09748ac0b9c1ffe61949, type: 3}
   _sprite: {fileID: 6345668168982730585}
+  damage: 1
   decelerationForce: 0.5
 --- !u!50 &7226424579287024430
 Rigidbody2D:

@@ -3,11 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndGameManager : MonoBehaviour
 {
     public Duck duck;
     public Baby baby;
+
+    public Transform dady;
+    public Transform momy;
+
 
     public Transform pointMoveEnd;
     public Transform pointBabyMoveEnd;
@@ -22,7 +27,15 @@ public class EndGameManager : MonoBehaviour
     public GameObject sound2;
     public GameObject soundNemShit;
 
+    private void Awake()
+    {
+        Application.targetFrameRate = 60;
+    }
 
+    public void Back()
+    {
+        SceneManager.LoadScene(0);
+    }
 
 
     private void Start()
@@ -30,14 +43,14 @@ public class EndGameManager : MonoBehaviour
         sound1.SetActive(true);
         text1.gameObject.SetActive(true);
         duck.Fly();
-        duck.transform.parent.DOMove(pointMoveEnd.position, 3).SetEase(Ease.Linear).OnComplete(() =>
+        duck.transform.parent.DOMove(pointMoveEnd.position, 6).SetEase(Ease.Linear).OnComplete(() =>
         {
             duck.Idle();
             baby.transform.parent = null;
 
             DOVirtual.DelayedCall(2, () =>
             {
-                baby.transform.position = new Vector3(2.465f, -3.76f, 40.5f);
+                baby.transform.position = new Vector3(3f, -3.76f, 40.5f);
                 DOVirtual.DelayedCall(2, () =>
                 {
                     // attack
@@ -46,7 +59,11 @@ public class EndGameManager : MonoBehaviour
 
                     soundNemShit.SetActive(true);
                     shit.transform.position = baby.transform.position;
-                    shit.transform.DOMove(new Vector3(15f, 0f, 40.53f), 2.5f).SetUpdate(UpdateType.Fixed);
+                    shit.transform.DOMove(new Vector3(15f, 0, 0), 2.5f).SetUpdate(UpdateType.Fixed);
+
+                    dady.transform.DOMove(new Vector3(15f, 0, 0), 1f).SetUpdate(UpdateType.Fixed).SetDelay(0.12f);
+                    momy.transform.DOMove(new Vector3(15f, 0, 0), 1f).SetUpdate(UpdateType.Fixed).SetDelay(0.125f);
+
                     baby.Attack();
 
                     DOVirtual.DelayedCall(2, () =>
@@ -64,7 +81,7 @@ public class EndGameManager : MonoBehaviour
                         {
                             text1.gameObject.SetActive(false);
 
-                            DOVirtual.DelayedCall(1f, () =>
+                            DOVirtual.DelayedCall(1.5f, () =>
                             {
                                 text2.gameObject.SetActive(false);
                             });

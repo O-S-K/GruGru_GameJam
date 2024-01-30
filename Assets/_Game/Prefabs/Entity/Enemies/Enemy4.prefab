@@ -362,7 +362,7 @@ MonoBehaviour:
     _speedMovement: 7
     _smoothSpeed: 1
     _seachRadiusTarget: 5
-    _fireRateBonus: 1
+    _fireRateBonus: 1.25
     _amountBulletOfGun: 1
   direction: {x: 0, y: 0}
   timeRandomMovement: 2
@@ -382,7 +382,7 @@ MonoBehaviour:
   pointSpawn: {fileID: 6880062020643100607}
   speed: 4
   timeDestroyed: 3
-  fireRate: 2
+  fireRate: 1.7
   fireRateDelay: 0.25
   iconProjectiles:
   - {fileID: 21300000, guid: 88c8ff50b0cf1444cbc3d59be23ece68, type: 3}

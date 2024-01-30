@@ -381,7 +381,7 @@ MonoBehaviour:
   pointSpawn: {fileID: 6880062020643100607}
   speed: 4
   timeDestroyed: 3
-  fireRate: 2
+  fireRate: 2.5
   fireRateDelay: 0.25
   iconProjectiles:
   - {fileID: 21300000, guid: 88c8ff50b0cf1444cbc3d59be23ece68, type: 3}

@@ -21,6 +21,8 @@ public class Player : BaseCharacter
     private GameObject itemShark;
     public bool ableEnemyDancing = false;
 
+    public VariableJoystick joystick;
+
 
     public override void InitData()
     {
@@ -152,8 +154,9 @@ public class Player : BaseCharacter
     public void DancingEnemy(GameObject sharkPrefab)
     {
         ableEnemyDancing = true;
+        ableBlockEnemyAttack = true;
 
-        if(itemShark != null)
+        if (itemShark != null)
         {
             Destroy(itemShark);
         }
@@ -168,17 +171,25 @@ public class Player : BaseCharacter
     public void RemoveDancingEnemy()
     {
         ableEnemyDancing = false;
+        ableBlockEnemyAttack = false;
+
         Destroy(itemShark);
         AudioManager.Instance.musicSource.Play();
     }
 
 
-
+    public bool isControllerPC;
     protected void GetInput()
     {
         // Get input
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
+
+        if (!isControllerPC)
+        {
+            horizontalInput = joystick.Horizontal;
+            verticalInput = joystick.Vertical;
+        }
 
         // Calculate velocity based on input
         Vector2 inputVector = new Vector2(horizontalInput, verticalInput);
@@ -188,7 +199,6 @@ public class Player : BaseCharacter
     protected override void Fly()
     {
         // Apply velocity to the rigidbody
-
         _rigidbody2D.velocity = velocity;
 
         // Giới hạn vị trí trong hình vuông

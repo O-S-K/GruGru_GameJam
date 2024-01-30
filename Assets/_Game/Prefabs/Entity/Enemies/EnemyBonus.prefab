@@ -318,7 +318,7 @@ MonoBehaviour:
   data:
     _hp: 1
     _damage: 1
-    _speedMovement: 5
+    _speedMovement: 3
     _smoothSpeed: 1
     _seachRadiusTarget: 5
     _fireRateBonus: 1
